@@ -2,7 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+html body main section {
+  margin: auto;
+}
+
+/* Custom Styles */
+
+.x-default-color {
+  @apply /* 백그라운드 */
+        bg-white dark:bg-neutral-800
+        /* 텍스트 */
+        text-neutral-800 dark:text-neutral-300;
+}
+.x-layer-color {
+  @apply /* 백그라운드 */
+        bg-white dark:bg-neutral-900
+        /* 텍스트 */
+        text-neutral-800 dark:text-neutral-300 
+        /* 보더 */
+        border-neutral-700 
+        [&_*]:border-neutral-700
+        /* 호버이벤트 */
+        [&_li:hover]:bg-neutral-100
+        [&_li:hover]:dark:bg-neutral-700
+        [&_a:hover]:bg-neutral-100
+        [&_a:hover]:dark:bg-neutral-700;
+}
+.x-primary-color {
+  @apply /* 보더 */
+        border-sky-500 
+        dark:border-neutral-700
+        [&_*]:border-sky-500
+        [&_*]:dark:border-neutral-700;
+}
+.x-disabled-arrow {
+  @apply text-neutral-500/50 cursor-not-allowed;
+}
+.x-item {
+}
+
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -24,4 +63,4 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-}
+} */

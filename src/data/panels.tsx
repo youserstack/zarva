@@ -1,0 +1,62 @@
+import {
+  SiAdidas,
+  SiApple,
+  SiAudi,
+  SiBentley,
+  SiBmw,
+  SiBose,
+  SiChevrolet,
+  SiDell,
+  SiFerrari,
+  SiFord,
+  SiHandm,
+  SiHonda,
+  SiHyundai,
+  SiLg,
+  SiLogitech,
+  SiMercedes,
+  SiMicrosoft,
+  SiNewbalance,
+  SiNike,
+  SiNissan,
+  SiPlaystation,
+  SiPorsche,
+  SiReebok,
+  SiToyota,
+  SiXbox,
+  SiZara,
+} from "react-icons/si";
+import { CgChanel } from "react-icons/cg";
+
+export const panels = [
+  // electronics
+  { name: "apple", icon: <SiApple /> },
+  { name: "microsoft", icon: <SiMicrosoft /> },
+  { name: "dell", icon: <SiDell /> },
+  { name: "logitech", icon: <SiLogitech /> },
+  { name: "bose", icon: <SiBose /> },
+  { name: "playstation", icon: <SiPlaystation /> },
+  { name: "xbox", icon: <SiXbox /> },
+
+  // fashion
+  { name: "nike", icon: <SiNike /> },
+  { name: "new balance", icon: <SiNewbalance /> },
+  { name: "reebok", icon: <SiReebok /> },
+  { name: "h&m", icon: <SiHandm /> },
+  { name: "zara", icon: <SiZara /> },
+  { name: "chanel", icon: <CgChanel /> },
+
+  // cars
+  { name: "bmw", icon: <SiBmw /> },
+  { name: "audi", icon: <SiAudi /> },
+  { name: "ford", icon: <SiFord /> },
+  { name: "porsche", icon: <SiPorsche /> },
+  { name: "ferrari", icon: <SiFerrari /> },
+  { name: "toyota", icon: <SiToyota /> },
+  { name: "hyundai", icon: <SiHyundai /> },
+  { name: "honda", icon: <SiHonda /> },
+  { name: "bentley", icon: <SiBentley /> },
+  { name: "chevrolet", icon: <SiChevrolet /> },
+  { name: "mercedes", icon: <SiMercedes /> },
+  { name: "nissan", icon: <SiNissan /> },
+];
