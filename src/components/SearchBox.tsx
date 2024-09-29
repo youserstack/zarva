@@ -1,9 +1,9 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { KeyboardEvent, useEffect, useRef, useState } from "react";
+import { CompositionEvent, KeyboardEvent, useEffect, useRef, useState } from "react";
 
-let items = [
+const items = [
   { id: 0, value: "시디즈1" },
   { id: 1, value: "시디즈2" },
   { id: 2, value: "시디즈3" },
@@ -53,9 +53,10 @@ export default function SearchBox() {
   const handleCompositionStart = () => {
     setIsComposing(true);
   };
-  const handleCompositionEnd = (e: any) => {
+  const handleCompositionEnd = (e: CompositionEvent<HTMLInputElement>) => {
     setIsComposing(false);
-    setQuery(e.target.value); // 최종 조합된 텍스트를 반영
+    // setQuery(e.target.value); // 최종 조합된 텍스트를 반영
+    setQuery(e.currentTarget.value); // 최종 조합된 텍스트를 반영
   };
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     setOpen(true);

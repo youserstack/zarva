@@ -8,7 +8,7 @@ import { MdFilterAlt } from "react-icons/md";
 
 export default function MobileFilter() {
   const [open, setOpen] = useState(false);
-  const [openFilterOptions, setOpenFilterOptions]: any = useState({});
+  const [openFilterOptions, setOpenFilterOptions] = useState<{ [key: string]: boolean }>({});
 
   return (
     <div className="모바일필터 lg:hidden">
@@ -63,7 +63,7 @@ export default function MobileFilter() {
                     className="flex w-full items-center justify-between px-2 py-3 font-medium"
                     type="button"
                     onClick={() => {
-                      setOpenFilterOptions((state: any) => ({
+                      setOpenFilterOptions((state) => ({
                         ...state,
                         [section.id]: !state[section.id],
                       }));

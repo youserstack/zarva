@@ -1,5 +1,4 @@
 import {
-  SiAdidas,
   SiApple,
   SiAudi,
   SiBentley,
@@ -12,7 +11,6 @@ import {
   SiHandm,
   SiHonda,
   SiHyundai,
-  SiLg,
   SiLogitech,
   SiMercedes,
   SiMicrosoft,

@@ -5,7 +5,32 @@ import Features from "@/components/Features";
 import ProductList from "@/components/ProductList";
 import Pagination from "@/components/Pagination";
 
-export default function FilterContainer({ data }: any) {
+interface Item {
+  title: string;
+  link: string;
+  image: string;
+  lprice: string;
+  hprice: string;
+  mallName: string;
+  productId: string;
+  productType: string;
+  brand: string;
+  maker: string;
+  category1: string;
+  category2: string;
+  category3: string;
+  category4: string;
+}
+
+interface Data {
+  lastBuildDate: string;
+  total: number;
+  start: number;
+  display: number;
+  items: Item[];
+}
+
+export default function FilterContainer({ data }: { data: Data }) {
   return (
     <div className="필터컨테이너 [&_.x-item:hover]:text-neutral-500 pb-24 grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
       <Filter />

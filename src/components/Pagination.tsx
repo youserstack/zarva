@@ -4,7 +4,32 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 
-export default function Pagination({ data }: any) {
+interface Item {
+  title: string;
+  link: string;
+  image: string;
+  lprice: string;
+  hprice: string;
+  mallName: string;
+  productId: string;
+  productType: string;
+  brand: string;
+  maker: string;
+  category1: string;
+  category2: string;
+  category3: string;
+  category4: string;
+}
+
+interface Data {
+  lastBuildDate: string;
+  total: number;
+  start: number;
+  display: number;
+  items: Item[];
+}
+
+export default function Pagination({ data }: { data: Data }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [page, setPage] = useState(Number(searchParams.get("page")) || 1); // currentPage
@@ -46,7 +71,10 @@ export default function Pagination({ data }: any) {
 
   // useEffect(() => console.log({ page }), [page]);
   useEffect(() => {
-    searchParams.get("page") && setPageGroup(Math.floor((page - 1) / 10));
+    // searchParams.get("page") && setPageGroup(Math.floor((page - 1) / 10));
+    if (searchParams.get("page")) {
+      setPageGroup(Math.floor((page - 1) / 10));
+    }
   }, []);
 
   useEffect(() => {

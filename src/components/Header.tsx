@@ -11,7 +11,7 @@ import { IoIosNotifications, IoIosNotificationsOff } from "react-icons/io";
 import { IoCloseOutline } from "react-icons/io5";
 import { MdAccountCircle } from "react-icons/md";
 
-const HamburgerButton = ({ onClick }: any) => (
+const HamburgerButton = ({ onClick }: { onClick: () => void }) => (
   <button
     className="햄버거버튼 { flex md:hidden } 
               relative size-9  justify-center items-center    

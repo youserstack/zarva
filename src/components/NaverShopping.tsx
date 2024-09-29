@@ -1,8 +1,12 @@
 import FilterContainer from "@/components/FilterContainer";
 
+interface SearchParams {
+  [key: string]: string | string[] | undefined;
+}
+
 const ITEMS_PER_PAGE = 10;
 
-export default async function NaverShopping({ searchParams }: any) {
+export default async function NaverShopping({ searchParams }: { searchParams: SearchParams }) {
   // query string parameters
   const page = Number(searchParams.page) || 1;
 

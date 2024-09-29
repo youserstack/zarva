@@ -1,13 +1,30 @@
 import Link from "next/link";
 
-export default function ProductList({ items }: { items: {}[] }) {
+interface Product {
+  title: string;
+  link: string;
+  image: string;
+  lprice: string;
+  hprice: string;
+  mallName: string;
+  productId: string;
+  productType: string;
+  brand: string;
+  maker: string;
+  category1: string;
+  category2: string;
+  category3: string;
+  category4: string;
+}
+
+export default function ProductList({ items }: { items: Product[] }) {
   return (
     <div className="제품리스트 mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
       <div
         className="grid grid-cols-1 gap-x-6 gap-y-10 
         sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
       >
-        {items.map((item: any) => (
+        {items.map((item: Product) => (
           <Link key={item.productId} href={item.link} className="group" target="_blank">
             <div
               className="제품이미지 h-[200px] w-full overflow-hidden rounded-lg 

@@ -1,6 +1,10 @@
 import NaverShopping from "@/components/NaverShopping";
 
-export default function Home({ searchParams }: any) {
+interface SearchParams {
+  [key: string]: string | string[] | undefined;
+}
+
+export default function Home({ searchParams }: { searchParams: SearchParams }) {
   return (
     <main className="min-h-screen pt-[150px]">
       <section className="max-w-screen-lg /min-h-full px-4 py-12 lg:px-8">
