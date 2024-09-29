@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import "./globals.css";
+import { cookies, headers } from "next/headers";
+import { Provider } from "@/components/Context";
+import { SessionProvider } from "next-auth/react";
 // import localFont from "next/font/local";
 
 // const geistSans = localFont({
@@ -20,11 +23,18 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const mode = cookies().get("mode")?.value as string;
+  console.log({ mode });
+  // const token = JSON.parse(headers().get("token") as string);
+  // console.log({ token });
+
   return (
     <html lang="en">
       <body className="x-default-color">
-        <Header />
-        {children}
+        <Provider mode={mode}>
+          <Header />
+          {children}
+        </Provider>
       </body>
     </html>
   );

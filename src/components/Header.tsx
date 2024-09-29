@@ -1,16 +1,14 @@
 "use client";
 
 import CategoryButton from "@/components/CategoryButton";
+import HeaderFeatures from "@/components/HeaderFeatures";
 import NaverFlicking from "@/components/NaverFlicking";
 import SearchBox from "@/components/SearchBox";
 import SearchBoxSkeleton from "@/components/skeletons/SearchBoxSkeleton";
 import Link from "next/link";
 import { Suspense, useState } from "react";
-import { FaBasketShopping } from "react-icons/fa6";
 import { HiBars2 } from "react-icons/hi2";
-import { IoIosNotifications, IoIosNotificationsOff } from "react-icons/io";
 import { IoCloseOutline } from "react-icons/io5";
-import { MdAccountCircle } from "react-icons/md";
 
 const HamburgerButton = ({ onClick }: { onClick: () => void }) => (
   <button
@@ -30,7 +28,7 @@ const Logo = () => (
     className="로고 flex-none font-semibold text-xl text-white focus:outline-none focus:opacity-80"
     href={""}
   >
-    ysk
+    zarva
   </Link>
 );
 
@@ -50,15 +48,8 @@ export default function Header() {
             <HamburgerButton onClick={() => setOpen(true)} />
             <CategoryButton />
           </>
-
           <Logo />
-
-          <div className="text-white flex justify-end items-center gap-2">
-            <FaBasketShopping className="text-xl" />
-            <MdAccountCircle className="text-xl" />
-            <IoIosNotifications className="text-xl" />
-            <IoIosNotificationsOff className="text-xl" />
-          </div>
+          <HeaderFeatures />
 
           <div className="모바일사이드메뉴컨테이너 { fixed md:hidden } font-semibold z-[200]">
             <div
@@ -73,7 +64,7 @@ export default function Header() {
                 x-layer-color
                 fixed top-0 left-0 w-full h-full max-w-xs basis-full grow z-[200]
                 transition-all duration-300 transform 
-                overflow-hidden overflow-y-auto
+                /overflow-hidden /overflow-y-auto 
                 p-2 space-y-4 
               `}
             >
