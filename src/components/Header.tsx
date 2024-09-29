@@ -3,8 +3,9 @@
 import CategoryButton from "@/components/CategoryButton";
 import NaverFlicking from "@/components/NaverFlicking";
 import SearchBox from "@/components/SearchBox";
+import SearchBoxSkeleton from "@/components/skeletons/SearchBoxSkeleton";
 import Link from "next/link";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { FaBasketShopping } from "react-icons/fa6";
 import { HiBars2 } from "react-icons/hi2";
 import { IoIosNotifications, IoIosNotificationsOff } from "react-icons/io";
@@ -165,7 +166,9 @@ export default function Header() {
         </nav>
 
         <div className="w-full relative max-w-5xl mx-auto px-4 flex justify-between items-center gap-8 sm:px-6 lg:px-8 py-2 md:gap-3">
-          <SearchBox />
+          <Suspense fallback={<SearchBoxSkeleton />}>
+            <SearchBox />
+          </Suspense>
         </div>
       </section>
 

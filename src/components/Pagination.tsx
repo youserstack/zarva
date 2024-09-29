@@ -87,7 +87,7 @@ export default function Pagination({ data }: { data: Data }) {
 
   return (
     <nav
-      className="페이지네이션 isolate m-auto -space-x-[1px] flex justify-center "
+      className="페이지네이션 isolate m-auto -space-x-[1px] flex justify-center"
       // isolate : stacking context 와 관련된 속성 (z-index)
       // -space-x-px : 수평으로 정렬된 박스요소의 좌우테두리가 서로 붙게되면 두껍께 보인다. 겹치게 만들어서 마치 한줄로 보이도록 한다. (negative margin)
     >

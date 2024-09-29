@@ -138,7 +138,7 @@ export default function SearchBox() {
   }, []);
 
   return (
-    <div className="relative   max-w-sm  md:w-[300px] ">
+    <div className="relative   max-w-sm  md:w-[300px]">
       <div className="쿼리박스 relative">
         <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none ps-3.5">
           <svg

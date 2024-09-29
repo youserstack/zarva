@@ -1,4 +1,5 @@
 import NaverShopping from "@/components/NaverShopping";
+import Skeleton from "@/components/Skeleton";
 
 interface SearchParams {
   [key: string]: string | string[] | undefined;
@@ -9,6 +10,7 @@ export default function Home({ searchParams }: { searchParams: SearchParams }) {
     <main className="min-h-screen pt-[150px]">
       <section className="max-w-screen-lg /min-h-full px-4 py-12 lg:px-8">
         <NaverShopping searchParams={searchParams} />
+        <Skeleton />
       </section>
     </main>
   );
