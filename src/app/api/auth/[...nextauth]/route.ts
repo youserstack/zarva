@@ -1,7 +1,8 @@
-import NextAuth, { NextAuthOptions, User, Account, Profile } from "next-auth";
+import NextAuth, { NextAuthOptions, User, Account, Profile, Session } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import NaverProvider from "next-auth/providers/naver";
 import KakaoProvider from "next-auth/providers/kakao";
+import { JWT } from "next-auth/jwt";
 
 // Naver의 프로필 타입 정의
 interface NaverProfile extends Profile {
@@ -57,36 +58,35 @@ const authOptions: NextAuthOptions = {
 
       // 프로바이더별 프로필 데이터 처리
       if (account.provider === "naver" && profile && "response" in profile) {
-        user.id = profile.response.id;
         user.name = profile.response.name;
         user.email = profile.response.email;
       } else if (account.provider === "google") {
         // Google의 경우 프로필의 'sub' 필드를 ID로 사용
         const googleProfile = profile as Profile; // Profile 타입 단언
-        user.id = googleProfile?.sub as string; // Google에서 제공하는 고유 ID는 'sub' 필드
         user.name = googleProfile?.name; // Google에서 제공하는 이름
         user.email = googleProfile?.email; // Google에서 제공하는 이메일
       } else if (account.provider === "kakao" && profile && "kakao_account" in profile) {
         const kakaoProfile = profile as KakaoProfile;
-        user.id = kakaoProfile.id;
         user.name = kakaoProfile.properties.nickname;
         user.email = kakaoProfile.kakao_account.email;
       }
 
       return true; // 로그인 허용
     },
-    async jwt({ token, user }: { token: any; user?: User }) {
+    async jwt({ token, user }: { token: JWT; user: User }) {
       if (user) {
-        token.id = user.id;
         token.name = user.name;
         token.email = user.email;
       }
+
       return token;
     },
-    async session({ session, token }: { session: any; token: any }) {
-      session.user.id = token.id;
-      session.user.name = token.name;
-      session.user.email = token.email;
+    async session({ session, token }: { session: Session; token: JWT }) {
+      if (session.user) {
+        session.user.name = token.name;
+        session.user.email = token.email;
+      }
+
       return session;
     },
   },

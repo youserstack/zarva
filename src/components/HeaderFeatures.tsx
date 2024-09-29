@@ -2,8 +2,8 @@
 
 import AccountButton from "@/components/AccountButton";
 import { FaBasketShopping } from "react-icons/fa6";
-import { IoIosNotifications, IoIosNotificationsOff } from "react-icons/io";
-import { signIn, useSession } from "next-auth/react";
+import { IoIosNotifications } from "react-icons/io";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 
 export default function HeaderFeatures() {

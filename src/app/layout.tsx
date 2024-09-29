@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import "./globals.css";
-import { cookies, headers } from "next/headers";
+import { cookies } from "next/headers";
 import { Provider } from "@/components/Context";
-import { SessionProvider } from "next-auth/react";
 // import localFont from "next/font/local";
 
 // const geistSans = localFont({
