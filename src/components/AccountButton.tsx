@@ -1,15 +1,23 @@
 "use client";
 
 import { signOut, useSession } from "next-auth/react";
+import Image from "next/image";
 import { MdAccountCircle } from "react-icons/md";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 
 export default function AccountButton() {
   const { data: session } = useSession();
+  console.log({ session });
 
   return (
     <div className="relative [&:hover_.x-margin]:block ">
-      <MdAccountCircle className="text-xl cursor-pointer" />
+      {session?.user?.image ? (
+        <div className="rounded-full overflow-hidden border-2 border-white hover:border-lime-500">
+          <Image src={session.user.image} alt="" width={20} height={20} />
+        </div>
+      ) : (
+        <MdAccountCircle className="text-xl cursor-pointer" />
+      )}
 
       <div className="계정레이어 x-margin hidden absolute top-full right-0 py-2 z-[10]">
         <ul

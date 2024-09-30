@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function HeaderFeatures() {
   const { data: session } = useSession();
-  console.log({ session });
+  // console.log({ session });
 
   return (
     <div className="text-white flex justify-end items-center gap-4 [&_>_*]:cursor-pointer">
