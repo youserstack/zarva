@@ -35,7 +35,12 @@ function Logo() {
   );
 }
 
-function UpperSide({ open, setOpen }: any) {
+interface UpperSideProps {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+}
+
+function UpperSide({ open, setOpen }: UpperSideProps) {
   return (
     <div
       className="w-full relative max-w-5xl mx-auto px-4 
